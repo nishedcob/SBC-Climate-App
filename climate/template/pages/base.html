@@ -231,9 +231,22 @@
                         </li>
                         <li>
                             <a href="{% url 'datos' %}"><i class="fa fa-table fa-fw"></i> Datos</a>
+                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Por año</a>
+                                </li>
+
+                                    </ul>
+
                         </li>
                         <li>
                             <a href="{% url 'graficos' %}"><i class="fa fa-bar-chart-o fa-fw"></i> Graficos</a>
+                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">estadisticas</a>
+                                </li>
+
+                                    </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
@@ -241,21 +254,7 @@
                                 <li>
                                     <a href="panels-wells.html">Panels and Wells</a>
                                 </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -265,24 +264,7 @@
                                 <li>
                                     <a href="#">Second Level Item</a>
                                 </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
+
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
@@ -311,11 +293,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">
-                        {% block content_title %}
-                            CLIMA
-                        {% endblock %}{# endblock content_title #}
-                    </h1>
+                    <h1 class="page-header">CLIMA</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
