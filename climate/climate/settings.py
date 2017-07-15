@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import re
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,3 +130,20 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     "static/",
 ]
+
+SPARQL_SETTINGS = {
+    'default': {
+        'graph-uri': "http://localhost:8890/climate",
+        'sparql-endpoint': "http://localhost:8890/sparql/",
+        'format': "application/json"
+    }
+}
+
+SPARQL_FROM_CLAUSE_REGEX = "FROM\s+<https?://.*>"
+SPARQL_FROM_CLAUSE_PATTERN = re.compile(SPARQL_FROM_CLAUSE_REGEX)
+
+SPARQL_SELECT_CLAUSE_REGEX = "SELECT\s+.*"
+SPARQL_SELECT_CLAUSE_PATTERN = re.compile(SPARQL_SELECT_CLAUSE_REGEX)
+
+SPARQL_WHERE_CLAUSE_REGEX = "WHERE\s*{.*}"
+SPARQL_WHERE_CLAUSE_PATTERN = re.compile(SPARQL_WHERE_CLAUSE_REGEX, re.DOTALL)
