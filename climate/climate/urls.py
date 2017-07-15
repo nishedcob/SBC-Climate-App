@@ -19,6 +19,6 @@ from sparqlApp import views as sparql_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^sparql/', sparql_views.SPARQL_View.as_view(), name='sparql'),
+    url(r'^sparql/$', sparql_views.SPARQL_View.as_view(), name='sparql'),
     url(r'^', include('climateApp.urls')),
 ]
