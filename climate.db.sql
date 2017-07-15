@@ -1,6 +1,6 @@
 su - postgres
 psql
-CREATE USER "sbcuser" WITH PASSWORD 's8cUr';
+CREATE USER "sbcuser" WITH PASSWORD 's8cU$3r';
 CREATE DATABASE "climatedb" WITH OWNER "sbcuser"; 
 \q
 psql -U postgres "climatedb"
