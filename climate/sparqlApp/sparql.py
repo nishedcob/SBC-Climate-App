@@ -18,7 +18,12 @@ def prepare_query(query, graph_url=settings.SPARQL_SETTINGS['default']['graph-ur
         where_clause = settings.SPARQL_WHERE_CLAUSE_PATTERN.search(query)
         if select_clause and where_clause:
             from_clause_string = "FROM <%s>" % graph_url
-            return select_clause.group(0) + "\n" + from_clause_string + "\n" + where_clause.group(0)
+            limit_clause = settings.SPARQL_LIMIT_CLAUSE_PATTERN.search(query)
+            if limit_clause:
+                return select_clause.group(0) + "\n" + from_clause_string + "\n" + where_clause.group(0) + "\n" +\
+                       limit_clause.group(0)
+            else:
+                return select_clause.group(0) + "\n" + from_clause_string + "\n" + where_clause.group(0)
         else:
             return None
 
