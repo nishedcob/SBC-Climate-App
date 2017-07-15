@@ -13,7 +13,8 @@ from climate import settings
 
 class SPARQL_View(View):
     #template_name = "sparql.html"
-    template_name = "pages/flot.html"
+    template_name = "pages/sparql.html"
+    
     def get(self, request):
         form = forms.SPARQL_SearchForm()
         context = {
