@@ -20,5 +20,5 @@ from . import views
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     #url(r'^', include('climateApp.urls')),
-    url(r'^', views.HomeView.as_view())
+    url(r'^', views.HomeView.as_view(), name="home")
 ]
