@@ -1,50 +1,54 @@
 {% extends "pages/base.html" %}
 
+{% block content_title %}
+    Clima SPARQL Endpoint
+{% endblock %} {# endblock content_title #}
+
 {% block content %}
-              <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit">
-        </form>
-        {% if response %}
-            <h3>Resultados</h3>
-            {% if error %}
-                Error: {{ response }}
-            {% else %}
-                <table style="border: 1px solid white;">
-                    {% if header %}
-                        <thead>
-                            {% for title in header %}
-                                <th style="border: 1px solid white;">{{ title }}</th>
-                            {% endfor %}
-                        </thead>
-                    {% endif %}
-                    {% for result_row in response %}
-                        <tr>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+    {% if response %}
+        <h3>Resultados</h3>
+        {% if error %}
+            Error: {{ response }}
+        {% else %}
+            <table style="border: 1px solid white;">
+                {% if header %}
+                    <thead>
+                    {% for title in header %}
+                        <th style="border: 1px solid white;">{{ title }}</th>
+                    {% endfor %}
+                    </thead>
+                {% endif %}
+                {% for result_row in response %}
+                    <tr>
                         {% for result in result_row %}
                             <td style="border: 1px solid white;">
                                 {{ result }}
                             </td>
                         {% endfor %}
-                        </tr>
-                    {% endfor %}
-                </table>
-            {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
         {% endif %}
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-8">
+    {% endif %}
+    <!-- /.row -->
+    <div class="row">
+    <div class="col-lg-8">
 
-                    <!-- /.panel -->
+        <!-- /.panel -->
 
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
 
-                    <!-- /.panel -->
+            <!-- /.panel -->
 
-                    <!-- /.panel .chat-panel -->
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- /.row -->
+            <!-- /.panel .chat-panel -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
 {% endblock %} {# end block content #}
