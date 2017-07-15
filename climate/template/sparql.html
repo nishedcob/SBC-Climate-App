@@ -3,13 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Climate SPARQL</title>
-        {% load static %}
-        <!-- jQuery -->
-        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     </head>
     <body>
         <h1>Cambio Climatico</h1>
         <h2>SPARQL Endpoint</h2>
+
+        <!--
+            Critical Section
+            ====================================================================
+        -->
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
@@ -40,5 +42,10 @@
                 </table>
             {% endif %}
         {% endif %}
+        <!--
+            ======================================================================
+            end of critical section
+        -->
+
     </body>
 </html>
