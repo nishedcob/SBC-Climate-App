@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from sparqlApp import views as sparql_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^sparql/', sparql_views.SPARQL_View.as_view()),
     url(r'^', include('climateApp.urls')),
 ]

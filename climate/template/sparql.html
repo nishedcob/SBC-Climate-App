@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Climate SPARQL</title>
+        {% load static %}
+        <!-- jQuery -->
+        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    </head>
+    <body>
+        <h1>Cambio Climatico</h1>
+        <h2>SPARQL Endpoint</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
+        {% if response %}
+            <h3>Resultados</h3>
+            {% if error %}
+                Error: {{ response }}
+            {% else %}
+                <table style="border: 1px solid black;">
+                    {% if header %}
+                        <thead>
+                            {% for title in header %}
+                                <th style="border: 1px solid black;">{{ title }}</th>
+                            {% endfor %}
+                        </thead>
+                    {% endif %}
+                    {% for result_row in response %}
+                        <tr>
+                        {% for result in result_row %}
+                            <td style="border: 1px solid black;">
+                                {{ result }}
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        {% endif %}
+    </body>
+</html>

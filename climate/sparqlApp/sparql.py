@@ -27,6 +27,7 @@ def sparql_query(query, format=settings.SPARQL_SETTINGS['default']['format'],
                  graph_url=settings.SPARQL_SETTINGS['default']['graph-uri'],
                  base_url=settings.SPARQL_SETTINGS['default']['sparql-endpoint']):
     query = prepare_query(query, graph_url)
+    #print(query)
     if query:
         params = {
             "default-graph": "",
