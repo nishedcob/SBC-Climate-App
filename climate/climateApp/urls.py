@@ -21,6 +21,6 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     #url(r'^', include('climateApp.urls')),
     url(r'^', views.HomeView.as_view(), name="home"),
-    url(r'^datos/', views.HomeView.as_view(), name="datos"),
-    url(r'^graficos/', views.HomeView.as_view(), name="graficos")
+    url(r'^datos/', views.DataView.as_view(), name="datos"),
+    url(r'^graficos/', views.GraphView.as_view(), name="graficos")
 ]
