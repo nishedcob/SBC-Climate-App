@@ -309,7 +309,6 @@
         </nav>
 
         <div id="page-wrapper">
-            {% block content %}
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">CLIMA</h1>
@@ -407,6 +406,7 @@
                     </div>
                 </div>
             </div>
+            {% block content %}
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
@@ -635,9 +635,9 @@
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
+            {% endblock %}{# endblock content #}
         </div>
         <!-- /#page-wrapper -->
-        {% endblock %}{# endblock content #}
     </div>
     <!-- /#wrapper -->
 
