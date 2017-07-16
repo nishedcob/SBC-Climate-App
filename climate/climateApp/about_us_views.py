@@ -84,27 +84,29 @@ class MADBAAboutUsView(GenericAboutUsView):
 
 
 class NSEDAboutUsView(GenericAboutUsView):
+
     context = {
         'title': "Acerca de Nosotros - Nicholas Earley",
         'item_1': True,
         'heading_1': "Formación:",
-        'text_1': "Programador y Analista de Backend con experiencia en C, Python, Java, Bash,"
-                  " PHP Administrador de Sistemas  con experiencia con SistemasOperativos en Debian,CentOS, Ubuntu, "
-                  "Fedora, Archlinux, Xen; Experiencia en Clusters con PelicanHPC y Rocks;"
-                  "Experience con proveedores como:"
-                  " Servidores Físicos, Microsoft Azure, IBM Softlayer. Administrador de Bases de "
-                  "Datos con experiencia  SQL en PostgreSQL, MySQL/MariaDB en adición a Diseño de Bases de Datos "
-                  "Relacionales; experiencia NoSQL con Neo4J, MongoDB,y Redis; Experiencia Triplestore con Mapeo de "
-                  "Datos como RDF y N-Tuplas, y consultas a la DBPedia mediante SPARQL. Arquitecto de Despliegue de "
-                  "Sistemas para el diseño e implementación de planes de alto nivel de despliegue y "
-                  "mantenimiento de N-Capa sistemas distribuidos en M-Niveles para proveer atributos de calidad como "
-                  "Portabilidad, Escalabilidad y Seguridad. Experiencia limitado en diseño de arquitecturas SOA y "
-                  "Microservicios.Algo de experiencia en Gestión de Proyecto especialmente con estimación "
-                  "de costo y tiempo basado en puntos de función en adición a estimaciones de progreso "
-                  "basados en Gestión del Valor Ganado"
-                  " Experiencia de "
-                  "Aplicaciones con NGinX,UWSGI, Docker(Docker-Compose andDocker-Swarm), ProFTPD, HTCondor, CronD,"
-                  " SystemD,SELinux, Fail2Ban, OpenSSH,OpenVPN, GitLab CE" ,
+        'text_1':  "Programador y Analista de Backend con experiencia en C, Python, Java, Bash,"
+                     "PHP Administrador de Sistemas  con experiencia con SistemasOperativos "
+                     "en Debian,CentOS, Ubuntu,  Fedora, Archlinux, Xen; Experiencia en "
+                     " Clusters con PelicanHPC y Rocks; Experience con proveedores como:"
+                     " Servidores Físicos, Microsoft Azure, IBM Softlayer. Administrador "
+                     "de Bases de Datos con experiencia  SQL en PostgreSQL, MySQL/MariaDB "
+                     "en adición a Diseño de Bases de Datos  Relacionales; experiencia NoSQL"
+                     "con Neo4J, MongoDB,y Redis; Experiencia Triplestore con Mapeo de Datos "
+                     "como RDF y N-Tuplas, y consultas a la DBPedia mediante SPARQL. Arquitecto"
+                     "de Despliegue de  Sistemas para el diseño e implementación de planes de "
+                     "alto nivel de despliegue y  mantenimiento de N-Capa sistemas distribuidos "
+                     "en M-Niveles para proveer atributos de calidad como  Portabilidad, "
+                     "Escalabilidad y Seguridad. Experiencia limitado en diseño de arquitecturas SOA y "
+                     "Microservicios.Algo de experiencia en Gestión de Proyecto especialmente con estimación "
+                     "de costo y tiempo basado en puntos de función en adición a estimaciones de progreso "
+                     "basados en Gestión del Valor Ganado Experiencia de Aplicaciones con  "
+                     "NGinX,UWSGI, Docker(Docker-Compose andDocker-Swarm), ProFTPD, HTCondor, CronD,"
+                     " SystemD,SELinux, Fail2Ban, OpenSSH,OpenVPN, GitLab CE",
         'image_1': "img/nicho1.jpg",
         'image_before_text_1': False,
         'item_2': False,
