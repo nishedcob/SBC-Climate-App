@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^vocab/$', views.RDFView.as_view(), name="rdf-vocab"),
     url(r'^graficos/$', views.GraphView.as_view(), name="graficos"),
     url(r'^graficos/cont-bruta$', views.BruteContaminationGraphView.as_view(), name="grafico-cont-bruta"),
+    url(r'^graficos/per-capita$', views.PerCapitaContaminationGraphView.as_view(), name="grafico-per-capita"),
     url(r'^acerca_de/', include('climateApp.about_us_urls'))
 ]
