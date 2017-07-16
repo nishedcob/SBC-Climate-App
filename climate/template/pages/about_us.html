@@ -7,53 +7,71 @@
     <!-- /.row -->
     <div class="row">
 
-            {% if item_1 or item_2 or item_3 %}
+        {% if item_1 or item_2 or item_3 %}
             <!-- /.panel -->
             <div class="panel panel-default">
 
                 <div class="panel-body">
                     <ul class="timeline">
                         {% if item_1 %}
-                        <li>
-                            <div class="timeline-badge"><i class="fa fa-check"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">{{ heading_1 }}</h4>
+                            <li>
+                                <div class="timeline-badge"><i class="fa fa-check"></i>
                                 </div>
-                                <div class="timeline-body">
-                                    <p>{{ text_1 }}</p>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">{{ heading_1 }}</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        {% if image_before_text_1 %}
+                                            {% if image_1 %}<img src="{% static image_1 %}">{% endif %}
+                                            {% if text_1 %}<p>{{ text_1 }}</p>{% endif %}
+                                        {% else %}
+                                            {% if text_1 %}<p>{{ text_1 }}</p>{% endif %}
+                                            {% if image_1 %}<img src="{% static image_1 %}">{% endif %}
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
                         {% endif %}
                         {% if item_2 %}
-                        <li class="timeline-inverted">
-                            <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">{{ heading_2 }}</h4>
+                            <li class="timeline-inverted">
+                                <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
                                 </div>
-                                <div class="timeline-body">
-                                    <p>{{ text_2 }}</p>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">{{ heading_2 }}</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        {% if image_before_text_2 %}
+                                            {% if image_2 %}<img src="{% static image_2 %}">{% endif %}
+                                            {% if text_2 %}<p>{{ text_2 }}</p>{% endif %}
+                                        {% else %}
+                                            {% if text_2 %}<p>{{ text_2 }}</p>{% endif %}
+                                            {% if image_2 %}<img src="{% static image_2 %}">{% endif %}
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
                         {% endif %}
                         {% if item_3 %}
-                        <li>
-                            <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title"></h4>
+                            <li>
+                                <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
                                 </div>
-                                <div class="timeline-body">
-                                    <p>{% lorem 1 %}</p>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4 class="timeline-title">{{ heading_3 }}</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        {% if image_before_text_3 %}
+                                            {% if image_3 %}<img src="{% static image_3 %}">{% endif %}
+                                            {% if text_3 %}<p>{{ text_3 }}</p>{% endif %}
+                                        {% else %}
+                                            {% if text_3 %}<p>{{ text_3 }}</p>{% endif %}
+                                            {% if image_3 %}<img src="{% static image_3 %}">{% endif %}
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
                         {% endif %}
                     </ul>
                 </div>
@@ -61,7 +79,7 @@
             </div>
             <!-- /.panel -->
 
-            {% endif %}
+        {% endif %}
     </div>
     <!-- /.row -->
 {% endblock %}{# endblock content #}
