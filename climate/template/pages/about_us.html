@@ -48,9 +48,9 @@
                                     <div class="timeline-body">
                                         {% if image_before_text_2 %}
                                             {% if image_2 %}<img src="{% static image_2 %}" width="100%">{% endif %}
-                                            {% if text_2 %}<br><p>{{ text_2 }}</p>{% endif %}
+                                            {% if text_2 %}<br><div  >{{ text_2 }}</div>{% endif %}
                                         {% else %}
-                                            {% if text_2 %}<p>{{ text_2 }}</p>{% endif %}
+                                            {% if text_2 %}<p>{{ text_2 |safe }}</p>{% endif %}
                                             {% if image_2 %}<br><br><img src="{% static image_2 %}" width="100%">{% endif %}
                                         {% endif %}
                                     </div>
