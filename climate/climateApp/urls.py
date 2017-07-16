@@ -22,6 +22,8 @@ urlpatterns = [
     #url(r'^', include('climateApp.urls')),
     url(r'^$', views.HomeView.as_view(), name="home"),
     url(r'^datos/$', views.DataView.as_view(), name="datos"),
+    url(r'^datos/def-vocab$', views.VocabDefView.as_view(), name="def-vocab"),
+    url(r'^vocab/$', views.RDFView.as_view(), name="rdf-vocab"),
     url(r'^graficos/$', views.GraphView.as_view(), name="graficos"),
     url(r'^acerca_de/', include('climateApp.about_us_urls'))
 ]

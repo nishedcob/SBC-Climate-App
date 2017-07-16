@@ -241,6 +241,17 @@
                                 <a href="{% url 'datos' %}">Descripción de Datasets</a>
                             </li>
                             <li>
+                                <a href="#">Vocabulario<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="{% url 'def-vocab' %}">Definicion del Vocabulario</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'rdf-vocab' %}">RDF del Vocabulario</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="{% url 'datos' %}">Por año</a>
                             </li>
                         </ul>
@@ -258,7 +269,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Acerca de Nosotros<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Acerca de Nosotros<span
+                                class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{% url 'about-us-utpl' %}">Universidad Tecnica Particular de Loja</a>
@@ -268,14 +280,14 @@
                             </li>
                             <li>
                                 <a href="#">Equipo de Desarrollo<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="{% url 'about-us-madba' %}">Marcelo Bravo</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'about-us-nsed' %}">Nicholas Earley</a>
-                                </li>
-                            </ul>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="{% url 'about-us-madba' %}">Marcelo Bravo</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'about-us-nsed' %}">Nicholas Earley</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

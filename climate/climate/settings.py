@@ -134,6 +134,7 @@ STATICFILES_DIRS = [
 SPARQL_SETTINGS = {
     'default': {
         'graph-uri': "http://localhost:8890/climate",
+        'vocab-graph-uri': "http://localhost:8890/climate_vocab",
         'sparql-endpoint': "http://localhost:8890/sparql/",
         'format': "application/json"
     }
