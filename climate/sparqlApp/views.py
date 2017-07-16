@@ -55,4 +55,5 @@ class SPARQL_View(View):
             'error': error,
             'header': header
         }
+        print(data)
         return render(request, self.template_name, context)
