@@ -1,0 +1,73 @@
+SELECT ?country ?year ?data
+WHERE {
+?s  <http://climate.utpl.edu.ec/vocab/belongsToDataSeries>
+ <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+?s <http://climate.utpl.edu.ec/vocab/year> ?year .
+?c <http://purl.org/dc/terms/title> ?country
+}
+
+SELECT ?country ?p ?o
+WHERE {
+?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?country .
+?country ?p ?o
+}
+
+SELECT ?country ?year ?data
+WHERE {
+?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+?s <http://climate.utpl.edu.ec/vocab/year> ?year .
+?c <http://purl.org/dc/terms/title> ?country
+}
+
+
+SELECT ?country ?year ?data
+WHERE {
+?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+?s <http://climate.utpl.edu.ec/vocab/year> ?y .
+?c <http://purl.org/dc/terms/title> ?country .
+?y <http://climate.utpl.edu.ec/vocab/year> ?year .
+}
+
+
+SELECT ?country ?year ?data
+WHERE {
+?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+?s <http://climate.utpl.edu.ec/vocab/year> ?y .
+?c <http://purl.org/dc/terms/title> ?country .
+?y <http://climate.utpl.edu.ec/vocab/year> ?year .
+} ORDER BY ?data
+
+
+
+SELECT ?country ?year ?data
+FROM <http://localhost:8890/climate>
+WHERE {
+?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+?s <http://climate.utpl.edu.ec/vocab/year> ?y .
+?c <http://purl.org/dc/terms/title> ?country .
+?y <http://climate.utpl.edu.ec/vocab/year> ?year .
+} ORDER BY desc(?data)
+
+SELECT ?country ?year ?data
+FROM <http://localhost:8890/climate>
+WHERE {
+?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.KT> .
+?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+?s <http://climate.utpl.edu.ec/vocab/year> ?y .
+?c <http://purl.org/dc/terms/title> ?country .
+?y <http://climate.utpl.edu.ec/vocab/year> ?year .
+} ORDER BY desc(?data)
+
+
