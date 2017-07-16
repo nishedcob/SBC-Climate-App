@@ -26,11 +26,12 @@
                                     </div>
                                     <div class="timeline-body">
                                         {% if image_before_text_1 %}
-                                            {% if image_1 %}<img src="{% static image_1 %}">{% endif %}
-                                            {% if text_1 %}<p>{{ text_1 }}</p>{% endif %}
+                                            {% if image_1 %}<img src="{% static image_1 %}" width="100%">{% endif %}
+
+                                            {% if text_1 %}<br><p>{{ text_1 }}</p>{% endif %}
                                         {% else %}
                                             {% if text_1 %}<p>{{ text_1 }}</p>{% endif %}
-                                            {% if image_1 %}<img src="{% static image_1 %}">{% endif %}
+                                            {% if image_1 %}<br><br><img src="{% static image_1 %}" width="100%">{% endif %}
                                         {% endif %}
                                     </div>
                                 </div>
@@ -46,11 +47,11 @@
                                     </div>
                                     <div class="timeline-body">
                                         {% if image_before_text_2 %}
-                                            {% if image_2 %}<img src="{% static image_2 %}">{% endif %}
-                                            {% if text_2 %}<p>{{ text_2 }}</p>{% endif %}
+                                            {% if image_2 %}<img src="{% static image_2 %}" width="100%">{% endif %}
+                                            {% if text_2 %}<br><p>{{ text_2 }}</p>{% endif %}
                                         {% else %}
                                             {% if text_2 %}<p>{{ text_2 }}</p>{% endif %}
-                                            {% if image_2 %}<img src="{% static image_2 %}">{% endif %}
+                                            {% if image_2 %}<br><br><img src="{% static image_2 %}" width="100%">{% endif %}
                                         {% endif %}
                                     </div>
                                 </div>
@@ -66,11 +67,11 @@
                                     </div>
                                     <div class="timeline-body">
                                         {% if image_before_text_3 %}
-                                            {% if image_3 %}<img src="{% static image_3 %}">{% endif %}
-                                            {% if text_3 %}<p>{{ text_3 }}</p>{% endif %}
+                                            {% if image_3 %}<img src="{% static image_3 %}"  width="100%">{% endif %}
+                                            {% if text_3 %}<br><p>{{ text_3 }}</p>{% endif %}
                                         {% else %}
                                             {% if text_3 %}<p>{{ text_3 }}</p>{% endif %}
-                                            {% if image_3 %}<img src="{% static image_3 %}">{% endif %}
+                                            {% if image_3 %}<br><br><img src="{% static image_3 %}"  width="100%">{% endif %}
                                         {% endif %}
                                     </div>
                                 </div>
