@@ -20,7 +20,7 @@
 
             countries = [];
             for (data_point_index = 0; data_point_index < data.length; data_point_index++) {
-                country = data[data_point_index][0];
+                country = data[data_point_index][1];
                 country_exists = false;
                 for (country_index = 0; !country_exists && country_index < countries.length; country_index++) {
                     if (country === countries[country_index]) country_exists = true;
@@ -33,9 +33,9 @@
                 country = countries[country_index];
                 country_data = [];
                 for (data_point_index = 0; data_point_index < data.length; data_point_index++) {
-                    data_country = data[data_point_index][0];
+                    data_country = data[data_point_index][1];
                     if (country === data_country) {
-                        coordinates = [parseFloat(data[data_point_index][2]), parseFloat(data[data_point_index][1])];
+                        coordinates = [parseFloat(data[data_point_index][2]), parseFloat(data[data_point_index][0])];
                         country_data.push(coordinates);
                     }
                 }
