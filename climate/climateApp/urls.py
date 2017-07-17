@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^graficos/renov-prod$', views.RenewableEnergyProductionGraphView.as_view(), name="grafico-renov-prod"),
     url(r'^graficos/renov-cons$', views.RenewableEnergyProductionGraphView.as_view(), name="grafico-renov-cons"),
     url(r'^graficos/estadisticas$', views.StatisticsGraphView.as_view(), name="grafico-estadisticas"),
+    url(r'^graficos/GasFS6emissions$', views.GasFS6emissionsGraphView.as_view(), name="GasFS6emissions"),
     url(r'^acerca_de/', include('climateApp.about_us_urls'))
 ]
