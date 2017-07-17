@@ -96,7 +96,7 @@ class NSEDAboutUsView(GenericAboutUsView):
                      " Servidores Físicos, Microsoft Azure, IBM Softlayer. Administrador "
                      "de Bases de Datos con experiencia SQL en PostgreSQL, MySQL/MariaDB "
                      "en adición a Diseño de Bases de Datos  Relacionales; experiencia NoSQL "
-                     "con Neo4J, MongoDB,y Redis; Experiencia Triplestore con Mapeo de Datos "
+                     "con Neo4J, MongoDB y Redis; Experiencia Triplestore con Mapeo de Datos "
                      "como RDF y N-Tuplas, y consultas a la DBPedia mediante SPARQL. Arquitecto "
                      "de Despliegue de  Sistemas para el diseño e implementación de planes de "
                      "alto nivel de despliegue y  mantenimiento de N-Capa sistemas distribuidos "
