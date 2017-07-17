@@ -3,7 +3,6 @@ import urllib.parse as parse
 import urllib.request
 import climate.settings as settings
 
-
 def prepare_query(query, graph_url=settings.SPARQL_SETTINGS['default']['graph-uri']):
     from_clause = settings.SPARQL_FROM_CLAUSE_PATTERN.search(query)
     if from_clause:
@@ -47,6 +46,7 @@ def sparql_query(query, format=settings.SPARQL_SETTINGS['default']['format'],
         querypart = parse.urlencode(params)
         binary_query_part = querypart.encode('ascii')
         response = urllib.request.urlopen(base_url, binary_query_part).read().decode('utf8')
+        #print(response)
         return json.loads(response)
     else:
         return None

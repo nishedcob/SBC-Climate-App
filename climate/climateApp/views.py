@@ -28,16 +28,16 @@ class BruteContaminationGraphView(View):
 
     def get(self, request):
         query = """
-        SELECT ?country ?year ?data
+        SELECT ?1 ?2 ?3
         FROM <http://localhost:8890/climate>
         WHERE {
         ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.KT> .
         ?s <http://climate.utpl.edu.ec/vocab/country> ?c .
-        ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+        ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?3 .
         ?s <http://climate.utpl.edu.ec/vocab/year> ?y .
-        ?c <http://purl.org/dc/terms/title> ?country .
-        ?y <http://climate.utpl.edu.ec/vocab/year> ?year .
-        } ORDER BY desc(?data)
+        ?c <http://purl.org/dc/terms/title> ?1 .
+        ?y <http://climate.utpl.edu.ec/vocab/year> ?2 .
+        } ORDER BY desc(?3)
         """
         data = sparql.sparql_query(query)
         error = False
@@ -53,7 +53,7 @@ class BruteContaminationGraphView(View):
             data = []
             for data_point in tmp_data:
                 save_data_point = []
-                for attr, attr_data in data_point.items():
+                for attr, attr_data in sorted(data_point.items()):
                     save_data_point.append(attr_data['value'])
                 data.append(save_data_point)
         context = {
@@ -68,16 +68,16 @@ class PerCapitaContaminationGraphView(View):
 
     def get(self, request):
         query = """
-        SELECT ?country ?year ?data
+        SELECT ?1 ?2 ?3
         FROM <http://localhost:8890/climate>
         WHERE {
         ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
         ?s <http://climate.utpl.edu.ec/vocab/country> ?c .
-        ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?data .
+        ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?3 .
         ?s <http://climate.utpl.edu.ec/vocab/year> ?y .
-        ?c <http://purl.org/dc/terms/title> ?country .
-        ?y <http://climate.utpl.edu.ec/vocab/year> ?year .
-        } ORDER BY desc(?data)
+        ?c <http://purl.org/dc/terms/title> ?1 .
+        ?y <http://climate.utpl.edu.ec/vocab/year> ?2 .
+        } ORDER BY desc(?3)
         """
         data = sparql.sparql_query(query)
         error = False
@@ -93,7 +93,7 @@ class PerCapitaContaminationGraphView(View):
             data = []
             for data_point in tmp_data:
                 save_data_point = []
-                for attr, attr_data in data_point.items():
+                for attr, attr_data in sorted(data_point.items()):
                     save_data_point.append(attr_data['value'])
                 data.append(save_data_point)
         context = {

@@ -46,9 +46,11 @@ class SPARQL_View(View):
                 data = []
                 for data_point in tmp_data:
                     save_data_point = []
-                    for attr, attr_data in data_point.items():
+                    #print(sorted(data_point.items()))
+                    for attr, attr_data in sorted(data_point.items()):
                         save_data_point.append(attr_data['value'])
                     data.append(save_data_point)
+                    #print(save_data_point)
         context = {
             'form': form,
             'response': data,
