@@ -31,5 +31,10 @@ urlpatterns = [
     url(r'^graficos/renov-cons$', views.RenewableEnergyProductionGraphView.as_view(), name="grafico-renov-cons"),
     url(r'^graficos/estadisticas$', views.StatisticsGraphView.as_view(), name="grafico-estadisticas"),
     url(r'^graficos/GasFS6emissions$', views.GasFS6emissionsGraphView.as_view(), name="GasFS6emissions"),
+    url(r'^graficos/CO2GaseousFuelP$', views.CO2GaseousFuelPGraphView.as_view(), name="CO2GaseousFuelP"),
+    url(r'^graficos/CO2GaseousFuelB$', views.CO2GaseousFuelBGraphView.as_view(), name="CO2GaseousFuelB"),
+    url(r'^graficos/CO2LiquidFuelP$', views.CO2LiquidFuelPGraphView.as_view(), name="CO2LiquidFuelP"),
+    url(r'^graficos/CO2LiquidFuelB$', views.CO2LiquidFuelBGraphView.as_view(), name="CO2LiquidFuelB"),
+    url(r'^graficos/CO2SolidFuelB$', views.CO2SolidFuelBGraphView.as_view(), name="CO2SolidFuelB"),
     url(r'^acerca_de/', include('climateApp.about_us_urls'))
 ]

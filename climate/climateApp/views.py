@@ -136,9 +136,54 @@ class GasFS6emissionsGraphView(GenericIndicatorLineGraphView):
     graph_title = "emision de FS6(GAS)"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (%)"
-    y_units = "tm"
+    y_axis = "toneladas metricas emitidas (kt)"
+    y_units = "kt"
     indicator = "EN.ATM.SF6G.KT.CE"
+
+class CO2GaseousFuelPGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de emision "
+    graph_title = "emision de "
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "toneladas metricas emitidas (%)"
+    y_units = "%"
+    indicator = "EN.ATM.CO2E.GF.ZS"
+
+class CO2GaseousFuelBGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de emision "
+    graph_title = "emision de "
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "toneladas metricas emitidas (kt)"
+    y_units = "kt"
+    indicator = "EN.ATM.CO2E.GF.KT"
+
+class CO2LiquidFuelPGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de emision "
+    graph_title = "emision de "
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "toneladas metricas emitidas (%)"
+    y_units = "%"
+    indicator = "EN.ATM.CO2E.LF.ZS"
+
+class CO2LiquidFuelBGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de emision "
+    graph_title = "emision de "
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "toneladas metricas emitidas (kt)"
+    y_units = "kt"
+    indicator = "EN.ATM.CO2E.LF.KT"
+
+class CO2SolidFuelBGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de emision "
+    graph_title = "emision de "
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "toneladas metricas emitidas (kt)"
+    y_units = "kt"
+    indicator = "EN.ATM.CO2E.SF.KT"
 
 
 
