@@ -61,10 +61,10 @@ class MADBAAboutUsView(GenericAboutUsView):
         'item_1': True,
         'heading_1': "Formación:",
         'text_1': "Estudiante de la Carrera de Ingenieria  de Sistemas informaticos en la Universidad Tecnica "
-                  "Parti-cular de Loja,conocimiento en sistemas operativos como Debian, Ubuntu, los lenguajes con los "
-                  "que ha trabajado son Java, Python, C,C++, tambien ha usado bases de datos MYSQL y postgresSQL,"
-                  "trabajo en proyectos de inteligencia artificial medianteel uso de la biblioteca OPENCV,"
-                  "Proyectos de reconoci-miento de objetos con dichas libre",
+                  "Particular de Loja, conocimiento en sistemas operativos como Debian, Ubuntu, los lenguajes con los "
+                  "que ha trabajado son Java, Python, C, C++, tambien ha usado bases de datos MySQL y PostgresSQL, "
+                  "trabajo en proyectos de inteligencia artificial mediante el uso de la biblioteca OpenCV, "
+                  "Proyectos de reconocimiento de objetos con dichas librerias",
         'image_1': "img/marcelo.jpg",
         'image_before_text_1': False,
         'item_2': False,
