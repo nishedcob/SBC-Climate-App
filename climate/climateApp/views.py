@@ -212,11 +212,30 @@ class VocabDefView(TemplateView):
 class RDFView(View):
     def get(self, request):
         query = """
-        SELECT ?s ?o ?p
+        SELECT ?1 ?2 ?3
         FROM <%s>
         WHERE {
-          ?s ?p ?o
+          ?1 ?2 ?3
         }
         """ % settings.SPARQL_SETTINGS['default']['vocab-graph-uri']
         data = sparql.sparql_query(query)
-        return JsonResponse(data)
+        if data is None:
+            data = "Some sort of error occurred..."
+        else:
+            json_data = data
+            header = json_data['head']['vars']
+            tmp_data = json_data['results']['bindings']
+            # print_data = json.dumps(data, sort_keys=True, indent=4)
+            # print(print_data)
+            data = []
+            for data_point in tmp_data:
+                save_data_point = []
+                for attr, attr_data in sorted(data_point.items()):
+                    save_data_point.append(attr_data['value'])
+                data.append(save_data_point)
+            data_list = data
+            data = ""
+            for data_row in data_list:
+                data = data + "\n<%s> <%s> <%s> ." % (data_row[0], data_row[1], data_row[2])
+        #return JsonResponse(data, safe=False)
+        return HttpResponse(data, content_type="text/plain") #content_type="application/n-triples")
