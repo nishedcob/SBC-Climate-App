@@ -23,23 +23,104 @@ class GraphView(TemplateView):
     template_name = "pages/graficos.html"
 
 
-class BruteContaminationGraphView(View):
-    template_name = "pages/grafico_contaminacion_bruta.html"
+# class BruteContaminationGraphView(View):
+#     template_name = "pages/grafico_contaminacion_bruta.html"
+#
+#     def get(self, request):
+#         query = """
+#         SELECT ?1 ?2 ?3
+#         FROM <http://localhost:8890/climate>
+#         WHERE {
+#         ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.KT> .
+#         ?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+#         ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?3 .
+#         ?s <http://climate.utpl.edu.ec/vocab/year> ?y .
+#         ?c <http://purl.org/dc/terms/title> ?1 .
+#         ?y <http://climate.utpl.edu.ec/vocab/year> ?2 .
+#         } ORDER BY desc(?3)
+#         """
+#         data = sparql.sparql_query(query)
+#         error = False
+#         if data is None:
+#             error = True
+#             data = "Some sort of error occurred..."
+#         else:
+#             json_data = data
+#             header = json_data['head']['vars']
+#             tmp_data = json_data['results']['bindings']
+#             # print_data = json.dumps(data, sort_keys=True, indent=4)
+#             # print(print_data)
+#             data = []
+#             for data_point in tmp_data:
+#                 save_data_point = []
+#                 for attr, attr_data in sorted(data_point.items()):
+#                     save_data_point.append(attr_data['value'])
+#                 data.append(save_data_point)
+#         context = {
+#             'error': error,
+#             'response': data
+#         }
+#         return render(request, self.template_name, context)
+
+
+# class PerCapitaContaminationGraphView(View):
+#     template_name = "pages/grafico_contaminacion_por_cabeza.html"
+#
+#     def get(self, request):
+#         query = """
+#         SELECT ?1 ?2 ?3
+#         FROM <http://localhost:8890/climate>
+#         WHERE {
+#         ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+#         ?s <http://climate.utpl.edu.ec/vocab/country> ?c .
+#         ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?3 .
+#         ?s <http://climate.utpl.edu.ec/vocab/year> ?y .
+#         ?c <http://purl.org/dc/terms/title> ?1 .
+#         ?y <http://climate.utpl.edu.ec/vocab/year> ?2 .
+#         } ORDER BY desc(?3)
+#         """
+#         data = sparql.sparql_query(query)
+#         error = False
+#         if data is None:
+#             error = True
+#             data = "Some sort of error occurred..."
+#         else:
+#             json_data = data
+#             header = json_data['head']['vars']
+#             tmp_data = json_data['results']['bindings']
+#             # print_data = json.dumps(data, sort_keys=True, indent=4)
+#             # print(print_data)
+#             data = []
+#             for data_point in tmp_data:
+#                 save_data_point = []
+#                 for attr, attr_data in sorted(data_point.items()):
+#                     save_data_point.append(attr_data['value'])
+#                 data.append(save_data_point)
+#         context = {
+#             'error': error,
+#             'response': data
+#         }
+#         return render(request, self.template_name, context)
+
+
+class GenericLineGraphView(View):
+    title = ""
+    graph_title = ""
+    source = ""
+    x_axis = ""
+    x_units = None
+    y_axis = ""
+    y_units = None
+    template_name = "pages/grafico_lineal_generica.html"
+    query = None
+
+    def build_query(self):
+        return self.query
 
     def get(self, request):
-        query = """
-        SELECT ?1 ?2 ?3
-        FROM <http://localhost:8890/climate>
-        WHERE {
-        ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.KT> .
-        ?s <http://climate.utpl.edu.ec/vocab/country> ?c .
-        ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?3 .
-        ?s <http://climate.utpl.edu.ec/vocab/year> ?y .
-        ?c <http://purl.org/dc/terms/title> ?1 .
-        ?y <http://climate.utpl.edu.ec/vocab/year> ?2 .
-        } ORDER BY desc(?3)
-        """
-        data = sparql.sparql_query(query)
+        if not self.build_query():
+            return None
+        data = sparql.sparql_query(self.build_query())
         error = False
         if data is None:
             error = True
@@ -58,20 +139,24 @@ class BruteContaminationGraphView(View):
                 data.append(save_data_point)
         context = {
             'error': error,
-            'response': data
+            'response': data,
+            'title': self.title,
+            'graph_title': self.graph_title,
+            'source': self.source,
+            'x_axis': self.x_axis,
+            'x_units': self.x_units,
+            'y_axis': self.y_axis,
+            'y_units': self.y_units
         }
         return render(request, self.template_name, context)
 
 
-class PerCapitaContaminationGraphView(View):
-    template_name = "pages/grafico_contaminacion_por_cabeza.html"
-
-    def get(self, request):
-        query = """
+class GenericIndicatorLineGraphView(GenericLineGraphView):
+    query = """
         SELECT ?1 ?2 ?3
         FROM <http://localhost:8890/climate>
         WHERE {
-        ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/EN.ATM.CO2E.PC> .
+        ?s <http://climate.utpl.edu.ec/vocab/belongsToDataSeries> <http://climate.utpl.edu.ec/data/%s> .
         ?s <http://climate.utpl.edu.ec/vocab/country> ?c .
         ?s <http://climate.utpl.edu.ec/vocab/dataPoint> ?3 .
         ?s <http://climate.utpl.edu.ec/vocab/year> ?y .
@@ -79,28 +164,50 @@ class PerCapitaContaminationGraphView(View):
         ?y <http://climate.utpl.edu.ec/vocab/year> ?2 .
         } ORDER BY desc(?3)
         """
-        data = sparql.sparql_query(query)
-        error = False
-        if data is None:
-            error = True
-            data = "Some sort of error occurred..."
-        else:
-            json_data = data
-            header = json_data['head']['vars']
-            tmp_data = json_data['results']['bindings']
-            # print_data = json.dumps(data, sort_keys=True, indent=4)
-            # print(print_data)
-            data = []
-            for data_point in tmp_data:
-                save_data_point = []
-                for attr, attr_data in sorted(data_point.items()):
-                    save_data_point.append(attr_data['value'])
-                data.append(save_data_point)
-        context = {
-            'error': error,
-            'response': data
-        }
-        return render(request, self.template_name, context)
+    indicator = ""
+
+    def build_query(self):
+        return self.query % self.indicator
+
+
+class BruteContaminationGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de Contamininacion Bruta"
+    graph_title = "Contaminacion Bruta de Paises"
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "Emisiones de CO2 (kt)"
+    y_units = "kt"
+    indicator = "EN.ATM.CO2E.KT"
+
+
+class PerCapitaContaminationGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de Contamininacion per Capita"
+    graph_title = "Contaminacion per Capita"
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "Emisiones de CO2 (kt)"
+    y_units = "kt"
+    indicator = "EN.ATM.CO2E.PC"
+
+
+class RenewableEnergyProductionGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de Producion de Energia Renovable"
+    graph_title = "Produccion de Energia Renovable"
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "Porcentaje de Energia Renovable (%)"
+    y_units = "%"
+    indicator = "EG.ELC.RNEW.ZS"
+
+
+class RenewableEnergyConsumptionGraphView(GenericIndicatorLineGraphView):
+    title = "Grafico de Consumo de Energia Renovable"
+    graph_title = "Consumo de Energia Renovable"
+    source = "Banco Mundial"
+    x_axis = "Año"
+    y_axis = "Porcentaje de Energia Renovable (%)"
+    y_units = "%"
+    indicator = "EG.FEC.RNEW.ZS"
 
 
 class StatisticsGraphView(View):

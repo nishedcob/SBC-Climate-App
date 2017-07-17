@@ -1,0 +1,209 @@
+{% extends "pages/base.html" %}
+
+{% block content_title %}
+    {{ title }}
+{% endblock %} {# endblock content_title #}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> {{ title }}
+        </div>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+        <div id="container" style="min-width: 100%; height: 1000px; max-width: 100%; margin: 0 auto"></div>
+
+        <script type="text/javascript">
+            data = {{ response | safe }};
+            console.log(data);
+
+            COUNTRY_INDEX = 0;
+            X_INDEX = 1;
+            Y_INDEX = 2;
+
+            countries = [];
+            for (data_point_index = 0; data_point_index < data.length; data_point_index++) {
+                country = data[data_point_index][COUNTRY_INDEX];
+                country_exists = false;
+                for (country_index = 0; !country_exists && country_index < countries.length; country_index++) {
+                    if (country === countries[country_index]) country_exists = true;
+                }
+                if (!country_exists) countries.push(country);
+            }
+
+            countries_data = [];
+            for (country_index = 0; country_index < countries.length; country_index++) {
+                country = countries[country_index];
+                country_data = [];
+                for (data_point_index = 0; data_point_index < data.length; data_point_index++) {
+                    data_country = data[data_point_index][COUNTRY_INDEX];
+                    if (country === data_country) {
+                        coordinates = [parseFloat(data[data_point_index][X_INDEX]), parseFloat(data[data_point_index][Y_INDEX])];
+                        country_data.push(coordinates);
+                    }
+                }
+                countries_data.push(country_data);
+            }
+
+            data_series = [];
+
+            function hsvToRgb(h, s, v) {
+                var r, g, b;
+                var i;
+                var f, p, q, t;
+
+                // Make sure our arguments stay in-range
+                h = Math.max(0, Math.min(360, h));
+                s = Math.max(0, Math.min(100, s));
+                v = Math.max(0, Math.min(100, v));
+
+                // We accept saturation and value arguments from 0 to 100 because that's
+                // how Photoshop represents those values. Internally, however, the
+                // saturation and value are calculated from a range of 0 to 1. We make
+                // That conversion here.
+                s /= 100;
+                v /= 100;
+
+                if (s == 0) {
+                    // Achromatic (grey)
+                    r = g = b = v;
+                    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+                }
+
+                h /= 60; // sector 0 to 5
+                i = Math.floor(h);
+                f = h - i; // factorial part of h
+                p = v * (1 - s);
+                q = v * (1 - s * f);
+                t = v * (1 - s * (1 - f));
+
+                switch (i) {
+                    case 0:
+                        r = v;
+                        g = t;
+                        b = p;
+                        break;
+
+                    case 1:
+                        r = q;
+                        g = v;
+                        b = p;
+                        break;
+
+                    case 2:
+                        r = p;
+                        g = v;
+                        b = t;
+                        break;
+
+                    case 3:
+                        r = p;
+                        g = q;
+                        b = v;
+                        break;
+
+                    case 4:
+                        r = t;
+                        g = p;
+                        b = v;
+                        break;
+
+                    default: // case 5:
+                        r = v;
+                        g = p;
+                        b = q;
+                }
+
+                return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+            }
+
+            function getColors(total) {
+                var i = 360 / (total - 1); // distribute the colors evenly on the hue range
+                var r = []; // hold the generated colors
+                for (var x = 0; x < total; x++) {
+                    r.push(hsvToRgb(i * x, 100, 100)); // you can also alternate the saturation and value for even more contrast between the colors
+                }
+                return r;
+            }
+
+            country_colores = getColors(countries.length);
+
+            for (country_index = 0; country_index < countries.length && country_index < countries_data.length; country_index++) {
+                country_color = country_colores[country_index];
+                country_color_string = "rgb(".concat(country_color[0]).concat(",").concat(country_color[1]).concat(",").concat(country_color[2]).concat(",0.5)");
+                country_series = {
+                    name: countries[country_index],
+                    //color: country_color_string,
+                    data: countries_data[country_index]
+                };
+                data_series.push(country_series);
+            }
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'scatter',
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: '{{ graph_title }}'
+                },
+                subtitle: {
+                    text: 'Fuente: {{ source }}'
+                },
+                xAxis: {
+                    title: {
+                        enabled: true,
+                        text: '{{ x_axis }}'
+                    },
+                    startOnTick: true,
+                    endOnTick: true,
+                    showLastLabel: true
+                },
+                yAxis: {
+                    title: {
+                        text: '{{ y_axis }}'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 0,
+                    y: 70,
+                    floating: false,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+                    borderWidth: 1
+                },
+                plotOptions: {
+                    scatter: {
+                        marker: {
+                            radius: 5,
+                            states: {
+                                hover: {
+                                    enabled: true,
+                                    lineColor: 'rgb(100,100,100)'
+                                }
+                            }
+                        },
+                        states: {
+                            hover: {
+                                marker: {
+                                    enabled: false
+                                }
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<b>{series.name}</b><br>',
+                            pointFormat: '{point.x}{% if x_units %} {{ x_units }}{% endif %}, {point.y}{% if y_units %} {{ y_units }}{% endif %}'
+                        }
+                    }
+                },
+                series: data_series
+            });
+        </script>
+        <!-- /.panel-body -->
+    </div>
+    <!--/div>
+    <!-- /.row -->
+{% endblock %}{# endblock content #}
