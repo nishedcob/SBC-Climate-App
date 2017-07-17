@@ -21,9 +21,11 @@
                                 <div class="timeline-badge"><i class="fa fa-check"></i>
                                 </div>
                                 <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">{{ heading_1 }}</h4>
-                                    </div>
+                                    {% if heading_1 %}
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">{{ heading_1 }}</h4>
+                                        </div>
+                                    {% endif %}
                                     <div class="timeline-body">
                                         {% if image_before_text_1 %}
                                             {% if image_1 %}<img src="{% static image_1 %}" width="100%">{% endif %}
@@ -31,7 +33,8 @@
                                             {% if text_1 %}<br><p>{{ text_1 }}</p>{% endif %}
                                         {% else %}
                                             {% if text_1 %}<p>{{ text_1 }}</p>{% endif %}
-                                            {% if image_1 %}<br><br><img src="{% static image_1 %}" width="100%">{% endif %}
+                                            {% if image_1 %}<br><br><img src="{% static image_1 %}" width="100%">
+                                            {% endif %}
                                         {% endif %}
                                     </div>
                                 </div>
@@ -42,16 +45,20 @@
                                 <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
                                 </div>
                                 <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">{{ heading_2 }}</h4>
-                                    </div>
+                                    {% if heading_2 %}
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">{{ heading_2 }}</h4>
+                                        </div>
+                                    {% endif %}
                                     <div class="timeline-body">
                                         {% if image_before_text_2 %}
                                             {% if image_2 %}<img src="{% static image_2 %}" width="100%">{% endif %}
-                                            {% if text_2 %}<br><div  >{{ text_2 }}</div>{% endif %}
+                                            {% if text_2 %}<br>
+                                                <div>{{ text_2 }}</div>{% endif %}
                                         {% else %}
                                             {% if text_2 %}<p>{{ text_2 |safe }}</p>{% endif %}
-                                            {% if image_2 %}<br><br><img src="{% static image_2 %}" width="100%">{% endif %}
+                                            {% if image_2 %}<br><br><img src="{% static image_2 %}" width="100%">
+                                            {% endif %}
                                         {% endif %}
                                     </div>
                                 </div>
@@ -62,16 +69,19 @@
                                 <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
                                 </div>
                                 <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">{{ heading_3 }}</h4>
-                                    </div>
+                                    {% if heading_3 %}
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">{{ heading_3 }}</h4>
+                                        </div>
+                                    {% endif %}
                                     <div class="timeline-body">
                                         {% if image_before_text_3 %}
-                                            {% if image_3 %}<img src="{% static image_3 %}"  width="100%">{% endif %}
+                                            {% if image_3 %}<img src="{% static image_3 %}" width="100%">{% endif %}
                                             {% if text_3 %}<br><p>{{ text_3 }}</p>{% endif %}
                                         {% else %}
                                             {% if text_3 %}<p>{{ text_3 }}</p>{% endif %}
-                                            {% if image_3 %}<br><br><img src="{% static image_3 %}"  width="100%">{% endif %}
+                                            {% if image_3 %}<br><br><img src="{% static image_3 %}" width="100%">
+                                            {% endif %}
                                         {% endif %}
                                     </div>
                                 </div>

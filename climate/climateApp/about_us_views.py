@@ -20,10 +20,10 @@ class UTPLAboutUsView(GenericAboutUsView):
         'text_2': "Buscar la verdad y formar al hombre, a través de la ciencia para que sirva a la sociedad",
         'image_2': None,
         'image_before_text_2': False,
-        'item_3': False,
+        'item_3': True,
         'heading_3': None,
         'text_3': None,
-        'image_3': None,
+        'image_3': 'img/escudo-utpl.jpg',
         'image_before_text_3': False
     }
 
