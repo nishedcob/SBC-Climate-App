@@ -1,0 +1,51 @@
+{% extends "pages/base.html" %}
+
+{% block content_title %}
+    Estadisticas Generales
+{% endblock %} {# endblock content_title #}
+
+{% block content %}
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas Generales
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Descripcion</th>
+                                <th>Dato</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% if vocab_error %}
+                                    <td colspan="2">Error de lectura del vocabulario</td>
+                                {% else %}
+                                    <td>Numero de Tripletas en el Vocabulario</td>
+                                    <td>{{ vocab_count }}</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                {% if data_error %}
+                                    <td colspan="2">Error de lectura de los datos</td>
+                                {% else %}
+                                    <td>Numero de Tripletas en los Datos</td>
+                                    <td>{{ data_count }}</td>
+                                {% endif %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!--/div>
+    <!-- /.row -->
+{% endblock %}{# endblock content #}

@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^graficos/$', views.GraphView.as_view(), name="graficos"),
     url(r'^graficos/cont-bruta$', views.BruteContaminationGraphView.as_view(), name="grafico-cont-bruta"),
     url(r'^graficos/per-capita$', views.PerCapitaContaminationGraphView.as_view(), name="grafico-per-capita"),
+    url(r'^graficos/estadisticas$', views.StatisticsGraphView.as_view(), name="grafico-estadisticas"),
     url(r'^acerca_de/', include('climateApp.about_us_urls'))
 ]
