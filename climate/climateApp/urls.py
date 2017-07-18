@@ -29,12 +29,12 @@ urlpatterns = [
     url(r'^graficos/per-capita$', views.PerCapitaContaminationGraphView.as_view(), name="grafico-per-capita"),
     url(r'^graficos/renov-prod$', views.RenewableEnergyProductionGraphView.as_view(), name="grafico-renov-prod"),
     url(r'^graficos/renov-cons$', views.RenewableEnergyProductionGraphView.as_view(), name="grafico-renov-cons"),
+    url(r'^graficos/sf6-emissions$', views.GasFS6emissionsGraphView.as_view(), name="grafico-GasFS6emissions"),
+    url(r'^graficos/p-co2-gas-emi$', views.CO2GaseousFuelPGraphView.as_view(), name="grafico-CO2GaseousFuelP"),
+    url(r'^graficos/b-co2-gas-emi$', views.CO2GaseousFuelBGraphView.as_view(), name="grafico-CO2GaseousFuelB"),
+    url(r'^graficos/p-co2-liq-emi$', views.CO2LiquidFuelPGraphView.as_view(), name="grafico-CO2LiquidFuelP"),
+    url(r'^graficos/b-co2-liq-emi$', views.CO2LiquidFuelBGraphView.as_view(), name="grafico-CO2LiquidFuelB"),
+    url(r'^graficos/b-co2-sld-emi$', views.CO2SolidFuelBGraphView.as_view(), name="grafico-CO2SolidFuelB"),
     url(r'^graficos/estadisticas$', views.StatisticsGraphView.as_view(), name="grafico-estadisticas"),
-    url(r'^graficos/GasFS6emissions$', views.GasFS6emissionsGraphView.as_view(), name="GasFS6emissions"),
-    url(r'^graficos/CO2GaseousFuelP$', views.CO2GaseousFuelPGraphView.as_view(), name="CO2GaseousFuelP"),
-    url(r'^graficos/CO2GaseousFuelB$', views.CO2GaseousFuelBGraphView.as_view(), name="CO2GaseousFuelB"),
-    url(r'^graficos/CO2LiquidFuelP$', views.CO2LiquidFuelPGraphView.as_view(), name="CO2LiquidFuelP"),
-    url(r'^graficos/CO2LiquidFuelB$', views.CO2LiquidFuelBGraphView.as_view(), name="CO2LiquidFuelB"),
-    url(r'^graficos/CO2SolidFuelB$', views.CO2SolidFuelBGraphView.as_view(), name="CO2SolidFuelB"),
     url(r'^acerca_de/', include('climateApp.about_us_urls'))
 ]

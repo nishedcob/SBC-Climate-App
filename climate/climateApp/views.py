@@ -131,62 +131,65 @@ class RenewableEnergyConsumptionGraphView(GenericIndicatorLineGraphView):
     y_units = "%"
     indicator = "EG.FEC.RNEW.ZS"
 
+
 class GasFS6emissionsGraphView(GenericIndicatorLineGraphView):
-    title = "Grafico de emision de FS6(GAS) (Kilotoneladas) "
-    graph_title = "emision de FS6(GAS)"
+    title = "Grafico de emision de SF6 (kt)"
+    graph_title = "Emisiones de SF6"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (kt)"
+    y_axis = "Kilotoneladas metricas emitidas (kt)"
     y_units = "kt"
     indicator = "EN.ATM.SF6G.KT.CE"
 
+
 class CO2GaseousFuelPGraphView(GenericIndicatorLineGraphView):
-    title = "Grafico de emision  de CO2 (porcentual)"
-    graph_title = "emision de CO2 en forma liquida"
+    title = "Grafico de emision de CO2 con combustibles de gas (porcentual)"
+    graph_title = "Emision de CO2 con Combustibles de Gas como porcentaje de emisiones totales"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (%)"
+    y_axis = "Porcentaje de Emisiones Totales (%)"
     y_units = "%"
     indicator = "EN.ATM.CO2E.GF.ZS"
 
+
 class CO2GaseousFuelBGraphView(GenericIndicatorLineGraphView):
-    title = "Grafico de emision de CO2 (Kilotoneladas)"
-    graph_title = "emision de CO2 en forma gaseosa "
+    title = "Grafico de emision de CO2 con combustibles de gas (kt)"
+    graph_title = "Emisiones Totales de CO2 con Combustibles de Gas"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (kt)"
+    y_axis = "Kilotoneladas metricas emitidas (kt)"
     y_units = "kt"
     indicator = "EN.ATM.CO2E.GF.KT"
 
+
 class CO2LiquidFuelPGraphView(GenericIndicatorLineGraphView):
-    title = "Grafico de emision CO2 (porcentual) "
-    graph_title = "emision de CO2 en forma liquida"
+    title = "Grafico de emision CO2 con combustibles liquidos (porcentual) "
+    graph_title = "Emision de CO2 con Combustibles Liquidos como porcentaje de emisiones totales"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (%)"
+    y_axis = "Porcentaje de Emisiones Totales (%)"
     y_units = "%"
     indicator = "EN.ATM.CO2E.LF.ZS"
 
+
 class CO2LiquidFuelBGraphView(GenericIndicatorLineGraphView):
-    title = "Grafico de emision CO2 (Kilotoneladas)"
-    graph_title = "emision de CO2 en forma liquida"
+    title = "Grafico de emision CO2 con combustibles liquidos (Kilotoneladas)"
+    graph_title = "Emisiones Totales de CO2 con Combustibles Liquidos"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (kt)"
+    y_axis = "Kilotoneladas metricas emitidas (kt)"
     y_units = "kt"
     indicator = "EN.ATM.CO2E.LF.KT"
 
+
 class CO2SolidFuelBGraphView(GenericIndicatorLineGraphView):
-    title = "Grafico de emision de CO2 (Kilotoneladas)"
-    graph_title = "emision de CO2 en forma solida"
+    title = "Grafico de emision de CO2 con combustibles solidos (Kilotoneladas)"
+    graph_title = "Emisiones Totales de CO2 con Combustibles Solidos"
     source = "Banco Mundial"
     x_axis = "Año"
-    y_axis = "toneladas metricas emitidas (kt)"
+    y_axis = "Kilotoneladas metricas emitidas (kt)"
     y_units = "kt"
     indicator = "EN.ATM.CO2E.SF.KT"
-
-
-
 
 
 class StatisticsGraphView(View):
